@@ -10,7 +10,7 @@ parameters:
 - name: SOURCE_REPOSITORY_URL
   description: The URL of the Git repository with the Kafkanetes Dockerfile
   required: true
-  value: https://git.eu.rabonet.com/polaris/kafkanetes.git
+  value: https://github.com/jorisjumanne/kafka-openshift.git
 - name: OBJECT_NAME_PREFIX
   description: Name prefix for each object created
   required: true
@@ -28,18 +28,6 @@ objects:
     name: ${OBJECT_NAME_PREFIX}
   spec:
     strategy:
-      dockerStrategy:
-        env:
-        - name: http_proxy
-          value: http://proxy.linux.rabobank.nl:3128
-        - name: https_proxy
-          value: http://proxy.linux.rabobank.nl:3128
-        - name: HTTP_PROXY
-          value: http://proxy.linux.rabobank.nl:3128
-        - name: HTTPS_PROXY
-          value: http://proxy.linux.rabobank.nl:3128
-        - name: no_proxy
-          value: .rabobank.nl,.rabobank.com,.rabonet.com
       type: Docker
     source:
       type: Git
